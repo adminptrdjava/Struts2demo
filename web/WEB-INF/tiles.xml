@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+   "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+   "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+<!-- BASE LAYOUT -->
+ <definition name="baseLayout" template="/layout.jsp">
+       <put-attribute name="title" value="" />
+       <put-attribute name="header" value="/header.jsp" />
+       <put-attribute name="menu" value="/menu.jsp" />
+       <put-attribute name="body" value="" />
+       <put-attribute name="footer" value="/footer.jsp" />
+ 
+   </definition>
+   
+   <!-- FOR LOGIN -->
+   
+<definition name="/welcome.tiles" extends="baseLayout">
+       <put-attribute name="title" value="Welcome page" />
+       <put-attribute name="body" value="/welcome.jsp" />
+   </definition>
+   
+   
+	<definition name="/login.tiles" extends="baseLayout">
+		<put-attribute name="title" value="LOGIN" />
+		<put-attribute name="body" value="/adminlogin.jsp" />
+	</definition>
+	
+	<!-- USER REGISTRATION FORM  -->
+	<definition name="/userreg.tiles" extends="baseLayout">
+	<put-attribute name="title" value="userregistration"/>
+	<put-attribute name="body" value="/userreg.jsp"/>
+	
+	</definition>
+	
+	<!-- ALL USER DETAILS -->
+	<definition name="/allusr.tiles" extends="baseLayout">
+	<put-attribute name="title" value="ALL USER DETAILS"/>
+	<put-attribute name="body" value="/allusr.jsp"/>
+	</definition>
+	<!-- ZONE MNG -->
+	<definition name="/zonemng.tiles" extends="baseLayout">
+	<put-attribute name="title" value="ZONE MANAGE"/>
+	<put-attribute name="body" value="/zonemng.jsp"/>
+	</definition>
+	
+	
+	<definition name="/zonelist.tiles" extends="baseLayout">
+	<put-attribute name="title" value="ZONE List"/>
+	<put-attribute name="body" value="/zonelist.jsp"/>
+	</definition>
+	
+	
+	<definition name="/zoneadd.tiles" extends="baseLayout">
+	<put-attribute name="title" value="ZONE List"/>
+	<put-attribute name="body" value="/zoneadd.jsp"/>
+	</definition>
+	
+	
+</tiles-definitions>

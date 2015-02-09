@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+          
+ <struts>
+ <constant name="struts.devMode" value="true"/>
+  <package name="default" namespace="/" extends="struts-default">
+ 
+ <!-- FOR TILES -->
+ <result-types>
+            <result-type name="tiles"
+                class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+ 
+ <!-- END TILES -->
+ 
+ 
+ 
+  <!-- ACTION MAP DEMO -->
+  <action name="getDemo" class="org.com.action.BasicAction" >
+  <result name="success">/result.jsp </result>
+  <result name="failure">/error.jsp</result>
+  </action>
+  
+  <action name="verysimple"
+class="org.com.action.VerySimpleAction">
+<result name="success" type="dispatcher">/result.jsp</result>
+</action>
+
+<!-- END DEMO -->
+
+
+  <!-- admin login action -->
+  
+  
+  <action name="setLogin" >
+  <result type="tiles"  >/login.tiles</result>
+  </action>
+  
+  
+  <action name="loginprep" class="org.com.action.BasicAction" method="loginperform">
+  <result name="success" type="tiles" >/welcome.tiles</result>
+  <result name="failure" >/adminlogin.jsp</result>
+  </action>
+  
+  <action name="logout" >
+            
+           <result name="success" type="tiles" >/login.tiles</result>
+        </action>
+  
+  
+  
+  <!-- END OF LOGIN -->
+  
+  <!-- user details fetch -->
+  <action name="Udtls" class="org.com.action.BasicAction" method="allfetch" >
+  <result name="success" type="tiles">/allusr.tiles</result>
+  <result name="failure" type="tiles" >/welcome.tiles</result>
+  </action>
+  
+  <!-- USER CREATION  -->
+  <action name="usrreg" >
+  <result name="success" type="tiles">/userreg.tiles</result>
+  
+  </action>
+  <action name="userregdo" class="org.com.action.BasicAction" method="newuserreg">
+  <result name="success" type="tiles">/userreg.tiles</result>
+  <result name="faliure" type="tiles">/userreg.tiles</result>
+  </action>
+  
+  <!-- ZONE MANAGEMENT -->
+  
+  <action name="zonemng" >
+  <result type="tiles">/zonemng.tiles</result>
+  </action>
+  
+  
+  <action name="zoneview" class="org.com.action.Zonemanage" method="zonelist">
+  <result name="success" type="tiles">/zonelist.tiles</result>
+  <result name="faliure" type="tiles">/zonemng.tiles</result>
+  </action>
+  
+  
+  <action name="zoneadd" >
+  <result  type="tiles">/zoneadd.tiles</result>
+  </action>
+  
+   <action name="zoneaddo" class="org.com.action.Zonemanage" method="zoneadd" >
+  <result name="success" type="tiles">/zoneadd.tiles</result>
+  <result name="faliure" type="tiles">/zoneadd.tiles</result>
+  </action>
+  
+  </package>
+  
+  
+  
+ </struts>
